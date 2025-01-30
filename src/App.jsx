@@ -1,11 +1,10 @@
 import React from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Environment } from "@react-three/drei";
-import { Color } from "three";
 import { FallingModel } from "./components/FallingModel";
 import "./styles.css";
 
-const modelCount = 100;
+const modelCount = 150;
 
 export default function App() {
   const models = Array.from({ length: modelCount }).map(() => {
@@ -14,29 +13,26 @@ export default function App() {
     const delay = Math.random() * 2;
     return {
       position: [
-        (Math.random() - 0.5) * 20,
+        (Math.random() - 0.5) * 10,
         initialY,
-        (Math.random() - 0.5) * 20,
+        (Math.random() - 0.5) * 10,
       ],
-      speed: speed,
-      delay: delay,
+      speed,
+      delay,
     };
   });
 
   return (
     <Canvas camera={{ fov: 45, position: [0, 0, 10], near: 1, far: 100 }}>
-      <color attach="background" args={[new Color("#ffb7b7")]} />
-
       <OrbitControls minDistance={5} maxDistance={10} />
       <ambientLight intensity={0.5} />
       <Environment preset="apartment" />
-
-      {models.map((model, i) => (
+      {models.map(({ position, speed, delay }, i) => (
         <FallingModel
           key={i}
-          initialPosition={model.position}
-          speed={model.speed}
-          delay={model.delay}
+          initialPosition={position}
+          speed={speed}
+          delay={delay}
         />
       ))}
     </Canvas>
