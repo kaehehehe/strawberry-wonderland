@@ -2,7 +2,8 @@ import React from "react";
 import { useGLTF } from "@react-three/drei";
 
 export function Model() {
-  const { scene } = useGLTF("strawberry.glb");
+  const { scene: red } = useGLTF("strawberry.glb");
+  const { scene: pink } = useGLTF("strawberry-pink.glb");
 
   return (
     <>
@@ -19,6 +20,8 @@ export function Model() {
           Math.random() * Math.PI,
         ];
 
+        const model = Math.random() < 0.5 ? red : pink;
+
         return (
           <mesh
             key={i}
@@ -26,7 +29,7 @@ export function Model() {
             rotation={rotation}
             scale={[500, 500, 500]}
           >
-            <primitive object={scene.clone()} />
+            <primitive object={model.clone()} />
           </mesh>
         );
       })}
