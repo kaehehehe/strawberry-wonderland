@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import { Model } from "./Model";
+import { StrawberryField } from "./StrawberryField";
 import { FlyControls } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 
@@ -21,7 +21,7 @@ export function Scene() {
         near={1}
         far={20000}
       />
-      <Model />
+      <StrawberryField />
       <FlyControls
         camera={cameraRef.current}
         movementSpeed={2500}
