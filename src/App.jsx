@@ -11,7 +11,6 @@ export default function App() {
     <Canvas
       camera={{
         fov: 40,
-        aspect: window.innerWidth / window.innerHeight,
         near: 1,
         far: 15000,
         position: [0, 0, 250],
