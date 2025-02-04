@@ -14,7 +14,15 @@ export function CameraControlsScene() {
 
   return (
     <>
-      <perspectiveCamera ref={cameraRef} />
+      <perspectiveCamera
+        ref={cameraRef}
+        makeDefault
+        fov={40}
+        aspect={window.innerWidth / window.innerHeight}
+        near={1}
+        far={15000}
+        position={[0, 0, 250]}
+      />
       <FlyControls
         camera={cameraRef.current}
         movementSpeed={2500}
