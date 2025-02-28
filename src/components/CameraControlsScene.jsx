@@ -26,7 +26,7 @@ export function CameraControlsScene() {
       <FlyControls
         camera={cameraRef.current}
         movementSpeed={2500}
-        rollSpeed={0.5}
+        rollSpeed={0.1}
         dragToLook={false}
       />
     </>
