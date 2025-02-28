@@ -6,7 +6,7 @@ export function Fog() {
   const { scene } = useThree();
 
   useEffect(() => {
-    scene.fog = new THREE.Fog("#f7cfd8", 9000, 15000);
+    scene.fog = new THREE.Fog("#f5b5c3", 9000, 15000);
 
     return () => {
       scene.fog = null;
